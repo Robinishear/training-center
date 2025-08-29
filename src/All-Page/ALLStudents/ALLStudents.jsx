@@ -23,12 +23,12 @@ export default function AllStudents() {
     fetchStudents();
   }, []);
 
-  // Filtered students based on search
+
   const filteredStudents = students.filter((s) =>
     s.studentName.toLowerCase().includes(search.toLowerCase())
   );
 
-  // Pagination logic
+  
   const indexOfLastStudent = currentPage * studentsPerPage;
   const indexOfFirstStudent = indexOfLastStudent - studentsPerPage;
   const currentStudents = filteredStudents.slice(
