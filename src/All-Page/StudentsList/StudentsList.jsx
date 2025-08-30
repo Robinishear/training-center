@@ -1,5 +1,20 @@
-// StudentForm.jsx
 import React, { useState } from "react";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: { y: 0, opacity: 1 },
+};
 
 const sampleDistricts = [
   { name: "Dhaka", thanas: ["Dhanmondi", "Gulshan", "Mirpur"] },
@@ -115,338 +130,373 @@ export default function StudentForm() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto p-4 ">
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="flex items-center justify-center text-3xl font-bold text-blue-600">StudentsList</div>
-        {/* Row 1 */}
-        <div className="flex flex-wrap gap-4">
-          <div className="flex-1 min-w-[200px]">
-            <label
-              htmlFor="studentName"
-              className="block text-sm font-normal mb-1"
-            >
-              Student Name
-            </label>
-            <input
-              id="studentName"
-              value={formData.studentName}
-              onChange={handleChange}
-              type="text"
-              className="w-full border border-gray-300 rounded px-2 py-1"
-            />
-          </div>
-          <div className="flex-1 min-w-[200px]">
-            <label
-              htmlFor="fatherName"
-              className="block text-sm font-normal mb-1"
-            >
-              Father Name
-            </label>
-            <input
-              id="fatherName"
-              value={formData.fatherName}
-              onChange={handleChange}
-              type="text"
-              className="w-full border border-gray-300 rounded px-2 py-1"
-            />
-          </div>
-          <div className="flex-1 min-w-[200px]">
-            <label
-              htmlFor="motherName"
-              className="block text-sm font-normal mb-1"
-            >
-              Mother Name
-            </label>
-            <input
-              id="motherName"
-              value={formData.motherName}
-              onChange={handleChange}
-              type="text"
-              className="w-full border border-gray-300 rounded px-2 py-1"
-            />
-          </div>
-        </div>
-
-        {/* Row 2 */}
-        <div className="flex flex-wrap gap-4">
-          <div className="flex-1 min-w-[150px]">
-            <label htmlFor="dob" className="block text-sm font-normal mb-1">
-              Date of Birth
-            </label>
-            <input
-              id="dob"
-              value={formData.dob}
-              onChange={handleChange}
-              type="date"
-              className="w-full border border-gray-300 rounded px-2 py-1"
-            />
-          </div>
-          <div className="flex-1 min-w-[150px]">
-            <label htmlFor="gender" className="block text-sm font-normal mb-1">
-              Gender
-            </label>
-            <select
-              id="gender"
-              value={formData.gender}
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded px-2 py-1"
-            >
-              <option>Male</option>
-              <option>Female</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div className="flex-1 min-w-[150px]">
-            <label
-              htmlFor="passport"
-              className="block text-sm font-normal mb-1"
-            >
-              Passport/NID No.
-            </label>
-            <input
-              id="passport"
-              value={formData.passport}
-              onChange={handleChange}
-              type="text"
-              className="w-full border border-gray-300 rounded px-2 py-1"
-            />
-          </div>
-          <div className="flex-1 min-w-[150px]">
-            <label
-              htmlFor="guardianPhone"
-              className="block text-sm font-normal mb-1"
-            >
-              Guardian Phone Number
-            </label>
-            <input
-              id="guardianPhone"
-              value={formData.guardianPhone}
-              onChange={handleChange}
-              type="text"
-              className="w-full border border-gray-300 rounded px-2 py-1"
-            />
-          </div>
-        </div>
-
-        {/* Row 3 */}
-        <div className="flex flex-wrap gap-4">
-          <div className="flex-1 min-w-[200px]">
-            <label
-              htmlFor="studentAddress"
-              className="block text-sm font-normal mb-1"
-            >
-              Student Address
-            </label>
-            <input
-              id="studentAddress"
-              value={formData.studentAddress}
-              onChange={handleChange}
-              type="text"
-              className="w-full border border-gray-300 rounded px-2 py-1"
-            />
-          </div>
-          <div className="flex-1 min-w-[150px]">
-            <label
-              htmlFor="district"
-              className="block text-sm font-normal mb-1"
-            >
-              District
-            </label>
-            <select
-              id="district"
-              value={formData.district}
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded px-2 py-1"
-            >
-              <option value="">Select District</option>
-              {sampleDistricts.map((d) => (
-                <option key={d.name} value={d.name}>
-                  {d.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="flex-1 min-w-[150px]">
-            <label htmlFor="thana" className="block text-sm font-normal mb-1">
-              Thana
-            </label>
-            <select
-              id="thana"
-              value={formData.thana}
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded px-2 py-1"
-            >
-              <option value="">Select Thana</option>
-              {thanaOptions.map((t) => (
-                <option key={t} value={t}>
-                  {t}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
-
-        {/* Row 4 */}
-        <div className="flex flex-wrap gap-4">
-          <div className="flex-1 min-w-[200px]">
-            <label
-              htmlFor="searchCourse"
-              className="block text-sm font-normal mb-1"
-            >
-              Search Course
-            </label>
-            <select
-              id="searchCourse"
-              value={formData.searchCourse}
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded px-2 py-1"
-            >
-              <option value="">Search course...</option>
-              {sampleCourses.map((c) => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="flex-1 min-w-[150px]">
-            <label
-              htmlFor="duration"
-              className="block text-sm font-normal mb-1"
-            >
-              Duration
-            </label>
-            <select
-              id="duration"
-              value={formData.duration}
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded px-2 py-1"
-            >
-              <option value="">Select duration</option>
-              {sampleDurations.map((d) => (
-                <option key={d} value={d}>
-                  {d}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="flex-1 min-w-[150px]">
-            <label htmlFor="session" className="block text-sm font-normal mb-1">
-              Session
-            </label>
-            <select
-              id="session"
-              value={formData.session}
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded px-2 py-1"
-            >
-              <option value="">Select session</option>
-              {sampleSessions.map((s) => (
-                <option key={s} value={s}>
-                  {s}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
-
-        {/* Row 5 */}
-        <div className="flex flex-wrap gap-4">
-          <div className="flex-1 min-w-[200px]">
-            <label
-              htmlFor="educationQualification"
-              className="block text-sm font-normal mb-1"
-            >
-              Education Qualification
-            </label>
-            <select
-              id="educationQualification"
-              value={formData.educationQualification}
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded px-2 py-1"
-            >
-              <option value="">Select qualification</option>
-              {sampleQualifications.map((q) => (
-                <option key={q} value={q}>
-                  {q}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="flex-1 min-w-[200px]">
-            <label
-              htmlFor="institute"
-              className="block text-sm font-normal mb-1"
-            >
-              Institute
-            </label>
-            <input
-              id="institute"
-              value={formData.institute}
-              onChange={handleChange}
-              type="text"
-              className="w-full border border-gray-300 rounded px-2 py-1"
-            />
-          </div>
-          <div className="flex-1 min-w-[200px]">
-            <label htmlFor="picture" className="block text-sm font-normal mb-1">
-              Picture
-            </label>
-            <input
-              id="picture"
-              onChange={handleChange}
-              type="file"
-              accept="image/*"
-              className="w-full border border-gray-300 rounded px-2 py-1"
-            />
-            {formData.picture && typeof formData.picture !== "string" && (
-              <p className="text-xs mt-1">Selected: {formData.picture.name}</p>
-            )}
-          </div>
-        </div>
-
-        {/* Row 6 */}
-        <div className="flex flex-wrap gap-4">
-          <div className="flex-1 min-w-[200px]">
-            <label
-              htmlFor="issueDate"
-              className="block text-sm font-normal mb-1"
-            >
-              Issue Date
-            </label>
-            <input
-              id="issueDate"
-              value={formData.issueDate}
-              onChange={handleChange}
-              type="date"
-              className="w-full border border-gray-300 rounded px-2 py-1"
-            />
-          </div>
-          <div className="flex-1 min-w-[200px]">
-            <label
-              htmlFor="expireDate"
-              className="block text-sm font-normal mb-1"
-            >
-              Expire Date
-            </label>
-            <input
-              id="expireDate"
-              value={formData.expireDate}
-              onChange={handleChange}
-              type="date"
-              className="w-full border border-gray-300 rounded px-2 py-1"
-            />
-          </div>
-        </div>
-
-        <button
-          disabled={submitting}
-          type="submit"
-          className="w-full bg-red-600 text-white rounded py-2 mt-4"
+    <div className="bg-gradient-to-br from-gray-950 via-gray-900 to-indigo-950 min-h-screen p-4 sm:p-8 text-gray-200">
+      <motion.div
+        className="max-w-6xl mx-auto rounded-xl bg-gray-800 bg-opacity-80 backdrop-blur-sm shadow-xl p-4 sm:p-8"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.div
+          variants={itemVariants}
+          className="flex items-center justify-center text-3xl font-bold mb-8 text-indigo-400 drop-shadow-lg"
         >
-          {submitting ? "Submitting..." : "Submit"}
-        </button>
-      </form>
+          StudentsList
+        </motion.div>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Main 2-column grid container */}
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Column 1 */}
+            <div className="space-y-6">
+              <motion.div variants={itemVariants} className="flex flex-col">
+                <label
+                  htmlFor="studentName"
+                  className="block text-sm font-normal mb-1 text-gray-400"
+                >
+                  Student Name
+                </label>
+                <input
+                  id="studentName"
+                  value={formData.studentName}
+                  onChange={handleChange}
+                  type="text"
+                  className="w-full bg-gray-900 border border-gray-700 rounded-md px-4 py-2 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+              </motion.div>
+
+              <motion.div variants={itemVariants} className="flex flex-col">
+                <label
+                  htmlFor="fatherName"
+                  className="block text-sm font-normal mb-1 text-gray-400"
+                >
+                  Father Name
+                </label>
+                <input
+                  id="fatherName"
+                  value={formData.fatherName}
+                  onChange={handleChange}
+                  type="text"
+                  className="w-full bg-gray-900 border border-gray-700 rounded-md px-4 py-2 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+              </motion.div>
+
+              <motion.div variants={itemVariants} className="flex flex-col">
+                <label
+                  htmlFor="motherName"
+                  className="block text-sm font-normal mb-1 text-gray-400"
+                >
+                  Mother Name
+                </label>
+                <input
+                  id="motherName"
+                  value={formData.motherName}
+                  onChange={handleChange}
+                  type="text"
+                  className="w-full bg-gray-900 border border-gray-700 rounded-md px-4 py-2 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+              </motion.div>
+
+              <motion.div variants={itemVariants} className="flex flex-col">
+                <label
+                  htmlFor="dob"
+                  className="block text-sm font-normal mb-1 text-gray-400"
+                >
+                  Date of Birth
+                </label>
+                <input
+                  id="dob"
+                  value={formData.dob}
+                  onChange={handleChange}
+                  type="date"
+                  className="w-full bg-gray-900 border border-gray-700 rounded-md px-4 py-2 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+              </motion.div>
+
+              <motion.div variants={itemVariants} className="flex flex-col">
+                <label
+                  htmlFor="gender"
+                  className="block text-sm font-normal mb-1 text-gray-400"
+                >
+                  Gender
+                </label>
+                <select
+                  id="gender"
+                  value={formData.gender}
+                  onChange={handleChange}
+                  className="w-full bg-gray-900 border border-gray-700 rounded-md px-4 py-2 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                >
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>Other</option>
+                </select>
+              </motion.div>
+
+              <motion.div variants={itemVariants} className="flex flex-col">
+                <label
+                  htmlFor="passport"
+                  className="block text-sm font-normal mb-1 text-gray-400"
+                >
+                  Passport/NID No.
+                </label>
+                <input
+                  id="passport"
+                  value={formData.passport}
+                  onChange={handleChange}
+                  type="text"
+                  className="w-full bg-gray-900 border border-gray-700 rounded-md px-4 py-2 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+              </motion.div>
+
+              <motion.div variants={itemVariants} className="flex flex-col">
+                <label
+                  htmlFor="guardianPhone"
+                  className="block text-sm font-normal mb-1 text-gray-400"
+                >
+                  Guardian Phone Number
+                </label>
+                <input
+                  id="guardianPhone"
+                  value={formData.guardianPhone}
+                  onChange={handleChange}
+                  type="text"
+                  className="w-full bg-gray-900 border border-gray-700 rounded-md px-4 py-2 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+              </motion.div>
+              <motion.div variants={itemVariants} className="flex flex-col">
+                <label
+                  htmlFor="studentAddress"
+                  className="block text-sm font-normal mb-1 text-gray-400"
+                >
+                  Student Address
+                </label>
+                <input
+                  id="studentAddress"
+                  value={formData.studentAddress}
+                  onChange={handleChange}
+                  type="text"
+                  className="w-full bg-gray-900 border border-gray-700 rounded-md px-4 py-2 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+              </motion.div>
+              <motion.div variants={itemVariants} className="flex flex-col">
+                <label
+                  htmlFor="district"
+                  className="block text-sm font-normal mb-1 text-gray-400"
+                >
+                  District
+                </label>
+                <select
+                  id="district"
+                  value={formData.district}
+                  onChange={handleChange}
+                  className="w-full bg-gray-900 border border-gray-700 rounded-md px-4 py-2 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                >
+                  <option value="">Select District</option>
+                  {sampleDistricts.map((d) => (
+                    <option key={d.name} value={d.name}>
+                      {d.name}
+                    </option>
+                  ))}
+                </select>
+              </motion.div>
+            </div>
+
+            {/* Column 2 */}
+            <div className="space-y-6">
+              <motion.div variants={itemVariants} className="flex flex-col">
+                <label
+                  htmlFor="thana"
+                  className="block text-sm font-normal mb-1 text-gray-400"
+                >
+                  Thana
+                </label>
+                <select
+                  id="thana"
+                  value={formData.thana}
+                  onChange={handleChange}
+                  className="w-full bg-gray-900 border border-gray-700 rounded-md px-4 py-2 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                >
+                  <option value="">Select Thana</option>
+                  {thanaOptions.map((t) => (
+                    <option key={t} value={t}>
+                      {t}
+                    </option>
+                  ))}
+                </select>
+              </motion.div>
+
+              <motion.div variants={itemVariants} className="flex flex-col">
+                <label
+                  htmlFor="searchCourse"
+                  className="block text-sm font-normal mb-1 text-gray-400"
+                >
+                  Search Course
+                </label>
+                <select
+                  id="searchCourse"
+                  value={formData.searchCourse}
+                  onChange={handleChange}
+                  className="w-full bg-gray-900 border border-gray-700 rounded-md px-4 py-2 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                >
+                  <option value="">Search course...</option>
+                  {sampleCourses.map((c) => (
+                    <option key={c} value={c}>
+                      {c}
+                    </option>
+                  ))}
+                </select>
+              </motion.div>
+
+              <motion.div variants={itemVariants} className="flex flex-col">
+                <label
+                  htmlFor="duration"
+                  className="block text-sm font-normal mb-1 text-gray-400"
+                >
+                  Duration
+                </label>
+                <select
+                  id="duration"
+                  value={formData.duration}
+                  onChange={handleChange}
+                  className="w-full bg-gray-900 border border-gray-700 rounded-md px-4 py-2 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                >
+                  <option value="">Select duration</option>
+                  {sampleDurations.map((d) => (
+                    <option key={d} value={d}>
+                      {d}
+                    </option>
+                  ))}
+                </select>
+              </motion.div>
+
+              <motion.div variants={itemVariants} className="flex flex-col">
+                <label
+                  htmlFor="session"
+                  className="block text-sm font-normal mb-1 text-gray-400"
+                >
+                  Session
+                </label>
+                <select
+                  id="session"
+                  value={formData.session}
+                  onChange={handleChange}
+                  className="w-full bg-gray-900 border border-gray-700 rounded-md px-4 py-2 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                >
+                  <option value="">Select session</option>
+                  {sampleSessions.map((s) => (
+                    <option key={s} value={s}>
+                      {s}
+                    </option>
+                  ))}
+                </select>
+              </motion.div>
+
+              <motion.div variants={itemVariants} className="flex flex-col">
+                <label
+                  htmlFor="educationQualification"
+                  className="block text-sm font-normal mb-1 text-gray-400"
+                >
+                  Education Qualification
+                </label>
+                <select
+                  id="educationQualification"
+                  value={formData.educationQualification}
+                  onChange={handleChange}
+                  className="w-full bg-gray-900 border border-gray-700 rounded-md px-4 py-2 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                >
+                  <option value="">Select qualification</option>
+                  {sampleQualifications.map((q) => (
+                    <option key={q} value={q}>
+                      {q}
+                    </option>
+                  ))}
+                </select>
+              </motion.div>
+
+              <motion.div variants={itemVariants} className="flex flex-col">
+                <label
+                  htmlFor="institute"
+                  className="block text-sm font-normal mb-1 text-gray-400"
+                >
+                  Institute
+                </label>
+                <input
+                  id="institute"
+                  value={formData.institute}
+                  onChange={handleChange}
+                  type="text"
+                  className="w-full bg-gray-900 border border-gray-700 rounded-md px-4 py-2 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+              </motion.div>
+
+              
+
+              <motion.div variants={itemVariants} className="flex flex-col">
+                <label
+                  htmlFor="issueDate"
+                  className="block text-sm font-normal mb-1 text-gray-400"
+                >
+                  Issue Date
+                </label>
+                <input
+                  id="issueDate"
+                  value={formData.issueDate}
+                  onChange={handleChange}
+                  type="date"
+                  className="w-full bg-gray-900 border border-gray-700 rounded-md px-4 py-2 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+              </motion.div>
+
+              <motion.div variants={itemVariants} className="flex flex-col">
+                <label
+                  htmlFor="expireDate"
+                  className="block text-sm font-normal mb-1 text-gray-400"
+                >
+                  Expire Date
+                </label>
+                <input
+                  id="expireDate"
+                  value={formData.expireDate}
+                  onChange={handleChange}
+                  type="date"
+                  className="w-full bg-gray-900 border border-gray-700 rounded-md px-4 py-2 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+              </motion.div>
+              <motion.div variants={itemVariants} className="flex flex-col">
+                <label
+                  htmlFor="picture"
+                  className="block text-sm font-normal mb-1 text-gray-400"
+                >
+                  Picture
+                </label>
+                <input
+                  id="picture"
+                  onChange={handleChange}
+                  type="file"
+                  accept="image/*"
+                  className="w-full text-gray-300  bg-gray-900 border border-gray-700 rounded-md px-4 py-2 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+                {formData.picture && typeof formData.picture !== "string" && (
+                  <p className="text-xs mt-1 text-gray-500">
+                    Selected: {formData.picture.name}
+                  </p>
+                )}
+              </motion.div>
+            </div>
+          </div>
+
+          <motion.button
+            variants={itemVariants}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            disabled={submitting}
+            type="submit"
+            className="w-full bg-indigo-600 hover:bg-indigo-700 text-gray-100 font-bold rounded-lg py-3 mt-8 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {submitting ? "Submitting..." : "Submit"}
+          </motion.button>
+          
+        </form>
+      </motion.div>
     </div>
   );
 }

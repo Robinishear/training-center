@@ -9,6 +9,7 @@ import {
   FaUserCheck,
   FaUserClock,
   FaTrash,
+  FaCheckCircle,
 } from "react-icons/fa";
 import { AuthContext } from "../Context/AuthContext";
 
@@ -110,6 +111,19 @@ const DashBoardLayout = () => {
             >
                <FaTrash className="text-gray-400 group-hover:text-indigo-400" />
               Remove Course
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/dashBoard/requestedBranches"
+              className={({ isActive }) =>
+                isActive
+                  ? "flex items-center gap-2 text-indigo-400 font-semibold bg-gray-700 rounded-lg py-2 px-3 transition-colors duration-200"
+                  : "flex items-center gap-2 text-gray-300 hover:text-indigo-400 hover:bg-gray-700 rounded-lg py-2 px-3 transition-colors duration-200"
+              }
+            >
+               <FaCheckCircle className="text-gray-400 group-hover:text-indigo-400" />
+              Branch Request
             </NavLink>
           </li>
           {isAdmin && (

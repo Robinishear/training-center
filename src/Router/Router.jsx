@@ -16,6 +16,7 @@ import AddCourse from "../DashBoardPages/AddCourse";
 import UserProfileAndAgreement from "../DashBoardPages/Profile/UserProfileAndAgreement";
 import RemoveCourses from "../DashBoardPages/RemoveCourse/RemoveCourses";
 import ALLStudents from "../All-Page/ALLStudents/ALLStudents";
+import RequestedBranches from "../DashBoardPages/RequestedBranches/RequestedBranches";
 
 
 const Router = createBrowserRouter([
@@ -100,6 +101,10 @@ const Router = createBrowserRouter([
       {
         path: "/dashBoard/removeCourses",
         Component: RemoveCourses,
+      },
+      {
+        path: "/dashBoard/requestedBranches",
+        Component: RequestedBranches,
       },
     ],
   },

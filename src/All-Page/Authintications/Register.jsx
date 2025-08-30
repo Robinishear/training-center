@@ -13,7 +13,6 @@ export default function Register() {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    reset,
   } = useForm();
 
   // ✅ Form Submit
@@ -32,11 +31,17 @@ export default function Register() {
         nationalIdPhoto: data.nationalIdPhoto?.[0]?.name || "",
         signaturePhoto: data.signaturePhoto?.[0]?.name || "",
       };
+      const handleImageUploadSuccess = (imageUrl) => {
+        setFormData((prevData) => ({
+          ...prevData,
+          image: imageUrl,
+        }));
+      };
 
       console.log("REGISTER_FORM_SUBMIT", displayData);
 
       axiosSecure
-        .post("/addUserInfo", displayData)
+        .post("/allBranches", displayData)
         .then(() => {
           Swal.fire({
             icon: "success",
