@@ -109,6 +109,19 @@ const DashBoardLayout = () => {
           </li>
           <li>
             <NavLink
+              to="/dashBoard/requestedBranches"
+              className={({ isActive }) =>
+                isActive
+                  ? "flex items-center gap-2 text-indigo-400 font-semibold bg-gray-700 rounded-lg py-2 px-3 transition-colors duration-200"
+                  : "flex items-center gap-2 text-gray-300 hover:text-indigo-400 hover:bg-gray-700 rounded-lg py-2 px-3 transition-colors duration-200"
+              }
+            >
+              <FaBox className="text-gray-400 group-hover:text-indigo-400" />
+              Requested Branches
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to="/dashBoard/removeCourses"
               className={({ isActive }) =>
                 isActive

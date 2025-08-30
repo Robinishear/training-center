@@ -31,12 +31,7 @@ export default function Register() {
         nationalIdPhoto: data.nationalIdPhoto?.[0]?.name || "",
         signaturePhoto: data.signaturePhoto?.[0]?.name || "",
       };
-      const handleImageUploadSuccess = (imageUrl) => {
-        setFormData((prevData) => ({
-          ...prevData,
-          image: imageUrl,
-        }));
-      };
+ 
 
       console.log("REGISTER_FORM_SUBMIT", displayData);
 

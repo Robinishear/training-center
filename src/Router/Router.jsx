@@ -26,6 +26,7 @@ import ALLStudents from "../All-Page/ALLStudents/ALLStudents";
 import ExamSuggestion from "../DashBoardPages/Branches-All-Page/ExamSuggestion/ExamSuggestion";
 import OMRSheet from "../DashBoardPages/Branches-All-Page/OMRSheet/OMRSheet";
 import UpdatePassword from "../DashBoardPages/Branches-All-Page/UpdatePassword/UpdatePassword";
+import RequestedBranches from "../DashBoardPages/RequestedBranches/RequestedBranches";
 
 const Router = createBrowserRouter([
   {
@@ -97,6 +98,10 @@ const Router = createBrowserRouter([
       {
         path: "/dashBoard/removeCourses",
         Component: RemoveCourses,
+      },
+      {
+        path: "/dashBoard/requestedBranches",
+        Component: RequestedBranches,
       },
     ],
   },
