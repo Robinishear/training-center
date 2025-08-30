@@ -26,7 +26,12 @@ import ALLStudents from "../All-Page/ALLStudents/ALLStudents";
 import ExamSuggestion from "../DashBoardPages/Branches-All-Page/ExamSuggestion/ExamSuggestion";
 import OMRSheet from "../DashBoardPages/Branches-All-Page/OMRSheet/OMRSheet";
 import UpdatePassword from "../DashBoardPages/Branches-All-Page/UpdatePassword/UpdatePassword";
+<<<<<<< HEAD
 import RequestedBranches from "../DashBoardPages/RequestedBranches/RequestedBranches";
+=======
+import ExamQuestion from "../DashBoardPages/Branches-All-Page/ExamQuestion/ExamQuestion";
+import NewStudent from "../DashBoardPages/Branches-All-Page/NewStudent/NewStudent";
+>>>>>>> bb36f830d1a1ae5ccde5a5c20010eb4b639f6a42
 
 const Router = createBrowserRouter([
   {
@@ -100,8 +105,33 @@ const Router = createBrowserRouter([
         Component: RemoveCourses,
       },
       {
+<<<<<<< HEAD
         path: "/dashBoard/requestedBranches",
         Component: RequestedBranches,
+=======
+        path: "/dashBoard/ExamQuestion",
+        Component: ExamQuestion,
+      },
+      {
+        path: "/dashBoard/ExamSuggestion",
+        Component: ExamSuggestion,
+      },
+      {
+        path: "/dashBoard/NewStudent",
+        Component: NewStudent,
+      },
+      {
+        path: "/dashBoard/OMRSheet",
+        Component: OMRSheet,
+      },
+      {
+        path: "/dashBoard/UpdatePassword",
+        Component: UpdatePassword,
+      },
+      {
+        path: "/dashBoard/StudentsList",
+        Component: StudentsList,
+>>>>>>> bb36f830d1a1ae5ccde5a5c20010eb4b639f6a42
       },
     ],
   },
