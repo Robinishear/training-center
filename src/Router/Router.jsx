@@ -20,7 +20,14 @@ import AddCourse from "../DashBoardPages/AddCourse";
 import UserProfileAndAgreement from "../DashBoardPages/Profile/UserProfileAndAgreement";
 import RemoveCourses from "../DashBoardPages/RemoveCourse/RemoveCourses";
 import StudentsList from "../DashBoardPages/StudentsList/StudentsList";
+
 import ALLStudents from "../All-Page/ALLStudents/ALLStudents";
+import NewStudent from "../DashBoardPages/Branches-All-Page/NewStudent/NewStudent";
+import ExamQuestion from "../DashBoardPages/Branches-All-Page/ExamQuestion/ExamQuestion";
+
+import ExamSuggestion from "../DashBoardPages/Branches-All-Page/ExamSuggestion/ExamSuggestion";
+import OMRSheet from "../DashBoardPages/Branches-All-Page/OMRSheet/OMRSheet";
+import UpdatePassword from "../DashBoardPages/Branches-All-Page/UpdatePassword/UpdatePassword";
 
 const Router = createBrowserRouter([
   {
@@ -96,6 +103,26 @@ const Router = createBrowserRouter([
       {
         path: "StudentsList",
         element: <StudentsList />,
+      },
+      {
+        path: "NewStudent",
+        element: <NewStudent />,
+      },
+      {
+        path: "ExamQuestion",
+        element: <ExamQuestion />,
+      },
+      {
+        path: "ExamSuggestion",
+        element: <ExamSuggestion />,
+      },
+      {
+        path: "OMRSheet",
+        element: <OMRSheet />,
+      },
+      {
+        path: "UpdatePassword",
+        element: <UpdatePassword />,
       },
     ],
   },

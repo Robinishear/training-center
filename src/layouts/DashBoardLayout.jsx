@@ -1,9 +1,18 @@
 import React, { useContext } from "react";
-import { NavLink, Outlet } from "react-router"; 
+import { NavLink, Outlet } from "react-router";
+import {
+  FaHistory,
+  FaUser,
+  FaUserPlus,
+  FaUsers,
+  FaQuestionCircle,
+  FaLightbulb,
+  FaRegClipboard,
+  FaLock,
+} from "react-icons/fa";
 import {
   FaHome,
   FaBox,
-  FaHistory,
   FaMapMarkerAlt,
   FaUserEdit,
   FaUserCheck,
@@ -13,7 +22,7 @@ import {
 import { AuthContext } from "../Context/AuthContext";
 
 const DashBoardLayout = () => {
-  const { user, loading, role } = useContext(AuthContext); 
+  const { user, loading, role } = useContext(AuthContext);
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center p-5 bg-gradient-to-br from-gray-950 via-gray-900 to-indigo-950 text-gray-100">
@@ -24,7 +33,7 @@ const DashBoardLayout = () => {
   }
 
   const isAdmin = user && role === "admin";
-  const isMember = user && role === "member" ; 
+  const isMember = user && role === "member";
   return (
     <div className="drawer lg:drawer-open ">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -56,7 +65,7 @@ const DashBoardLayout = () => {
             Dashboard
           </div>
         </div>
-        
+
         <div className="flex-1 bg-gradient-to-br from-gray-950 via-gray-900 to-indigo-950 md:p-8">
           <Outlet></Outlet>
         </div>
@@ -68,9 +77,8 @@ const DashBoardLayout = () => {
           className="drawer-overlay"
         ></label>
         <ul className="menu bg-gray-800 text-gray-200 min-h-full w-60 p-4 shadow-xl">
-         
           <div className="mb-6 px-4">
-          <NavLink to="/">LOGO</NavLink>
+            <NavLink to="/">LOGO</NavLink>
           </div>
 
           <li>
@@ -108,25 +116,111 @@ const DashBoardLayout = () => {
                   : "flex items-center gap-2 text-gray-300 hover:text-indigo-400 hover:bg-gray-700 rounded-lg py-2 px-3 transition-colors duration-200"
               }
             >
-               <FaTrash className="text-gray-400 group-hover:text-indigo-400" />
+              <FaTrash className="text-gray-400 group-hover:text-indigo-400" />
               Remove Course
             </NavLink>
           </li>
-          <div className="font-bold text-xl mt-10 text-blue-600 ml-3">Branches-All-Page</div>
-            <li>
-              <NavLink
-                to="/dashBoard/StudentsList"
-                className={({ isActive }) =>
-                  isActive
-                    ? "flex items-center gap-2 text-indigo-400 font-semibold bg-gray-700 rounded-lg py-2 px-3 transition-colors duration-200"
-                    : "flex items-center gap-2 text-gray-300 hover:text-indigo-400 hover:bg-gray-700 rounded-lg py-2 px-3 transition-colors duration-200"
-                }
-              >
-                <FaHistory className="text-gray-400 group-hover:text-indigo-400" />
-               ADD-Students
-              </NavLink>
-            </li>
-      
+          <div className="font-bold text-xl mt-10 text-blue-600 ml-3">
+            Branches-All-Page
+          </div>
+
+          <li>
+            <NavLink
+              to="/dashBoard/Profile"
+              className={({ isActive }) =>
+                isActive
+                  ? "flex items-center gap-2 text-indigo-400 font-semibold bg-gray-700 rounded-lg py-2 px-3 transition-colors duration-200"
+                  : "flex items-center gap-2 text-gray-300 hover:text-indigo-400 hover:bg-gray-700 rounded-lg py-2 px-3 transition-colors duration-200"
+              }
+            >
+              <FaUser className="text-gray-400 group-hover:text-indigo-400" />
+              Profile
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              to="/dashBoard/NewStudent"
+              className={({ isActive }) =>
+                isActive
+                  ? "flex items-center gap-2 text-indigo-400 font-semibold bg-gray-700 rounded-lg py-2 px-3 transition-colors duration-200"
+                  : "flex items-center gap-2 text-gray-300 hover:text-indigo-400 hover:bg-gray-700 rounded-lg py-2 px-3 transition-colors duration-200"
+              }
+            >
+              <FaUserPlus className="text-gray-400 group-hover:text-indigo-400" />
+              New Student
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              to="/dashBoard/StudentsList"
+              className={({ isActive }) =>
+                isActive
+                  ? "flex items-center gap-2 text-indigo-400 font-semibold bg-gray-700 rounded-lg py-2 px-3 transition-colors duration-200"
+                  : "flex items-center gap-2 text-gray-300 hover:text-indigo-400 hover:bg-gray-700 rounded-lg py-2 px-3 transition-colors duration-200"
+              }
+            >
+              <FaUsers className="text-gray-400 group-hover:text-indigo-400" />
+              Student List
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              to="/dashBoard/ExamQuestion"
+              className={({ isActive }) =>
+                isActive
+                  ? "flex items-center gap-2 text-indigo-400 font-semibold bg-gray-700 rounded-lg py-2 px-3 transition-colors duration-200"
+                  : "flex items-center gap-2 text-gray-300 hover:text-indigo-400 hover:bg-gray-700 rounded-lg py-2 px-3 transition-colors duration-200"
+              }
+            >
+              <FaQuestionCircle className="text-gray-400 group-hover:text-indigo-400" />
+              Exam Question
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              to="/dashBoard/ExamSuggestion"
+              className={({ isActive }) =>
+                isActive
+                  ? "flex items-center gap-2 text-indigo-400 font-semibold bg-gray-700 rounded-lg py-2 px-3 transition-colors duration-200"
+                  : "flex items-center gap-2 text-gray-300 hover:text-indigo-400 hover:bg-gray-700 rounded-lg py-2 px-3 transition-colors duration-200"
+              }
+            >
+              <FaLightbulb className="text-gray-400 group-hover:text-indigo-400" />
+              Exam Suggestion
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              to="/dashBoard/OMRSheet"
+              className={({ isActive }) =>
+                isActive
+                  ? "flex items-center gap-2 text-indigo-400 font-semibold bg-gray-700 rounded-lg py-2 px-3 transition-colors duration-200"
+                  : "flex items-center gap-2 text-gray-300 hover:text-indigo-400 hover:bg-gray-700 rounded-lg py-2 px-3 transition-colors duration-200"
+              }
+            >
+              <FaRegClipboard className="text-gray-400 group-hover:text-indigo-400" />
+              OMR Sheet
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              to="/dashBoard/UpdatePassword"
+              className={({ isActive }) =>
+                isActive
+                  ? "flex items-center gap-2 text-indigo-400 font-semibold bg-gray-700 rounded-lg py-2 px-3 transition-colors duration-200"
+                  : "flex items-center gap-2 text-gray-300 hover:text-indigo-400 hover:bg-gray-700 rounded-lg py-2 px-3 transition-colors duration-200"
+              }
+            >
+              <FaLock className="text-gray-400 group-hover:text-indigo-400" />
+              Update Password
+            </NavLink>
+          </li>
 
           {isMember && (
             <li>
@@ -158,22 +252,21 @@ const DashBoardLayout = () => {
               </NavLink>
             </li>
           )}
-          
-          
-            <li>
-              <NavLink
-                to="/dashBoard/adminDashBoard"
-                className={({ isActive }) =>
-                  isActive
-                    ? "flex items-center gap-2 text-indigo-400 font-semibold bg-gray-700 rounded-lg py-2 px-3 transition-colors duration-200"
-                    : "flex items-center gap-2 text-gray-300 hover:text-indigo-400 hover:bg-gray-700 rounded-lg py-2 px-3 transition-colors duration-200"
-                }
-              >
-                <FaUserCheck className="text-gray-400 group-hover:text-indigo-400" />
-                Stats
-              </NavLink>
-            </li>
-         
+
+          <li>
+            <NavLink
+              to="/dashBoard/adminDashBoard"
+              className={({ isActive }) =>
+                isActive
+                  ? "flex items-center gap-2 text-indigo-400 font-semibold bg-gray-700 rounded-lg py-2 px-3 transition-colors duration-200"
+                  : "flex items-center gap-2 text-gray-300 hover:text-indigo-400 hover:bg-gray-700 rounded-lg py-2 px-3 transition-colors duration-200"
+              }
+            >
+              <FaUserCheck className="text-gray-400 group-hover:text-indigo-400" />
+              Stats
+            </NavLink>
+          </li>
+
           {isAdmin && (
             <li>
               <NavLink
@@ -185,7 +278,7 @@ const DashBoardLayout = () => {
                 }
               >
                 <FaUserCheck className="text-gray-400 group-hover:text-indigo-400" />
-               Make Announcement
+                Make Announcement
               </NavLink>
             </li>
           )}
@@ -215,7 +308,7 @@ const DashBoardLayout = () => {
                 }
               >
                 <FaUserClock className="text-gray-400 group-hover:text-indigo-400" />
-               Coupon Management
+                Coupon Management
               </NavLink>
             </li>
           )}
