@@ -115,9 +115,9 @@ export default function StudentForm() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto p-4 ">
+    <div className="max-w-7xl mx-auto p-4 border border-blue-400 rounded-2xl">
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="flex items-center justify-center text-3xl font-bold text-blue-600">StudentsList</div>
+        <div className="flex items-center justify-center text-3xl font-bold text-blue-600">Students-ADD</div>
         {/* Row 1 */}
         <div className="flex flex-wrap gap-4">
           <div className="flex-1 min-w-[200px]">

@@ -43,7 +43,7 @@ const Navbar = () => {
     { title: "Course List", path: "/CourseList" },
     { title: "Verified Institutes", path: "/BranchesList" },
     { title: "ALL-Students", path: "/ALLStudents" },
-    { title: "ADD-Students", path: "/StudentsList" },
+    // { title: "ADD-Students", path: "/StudentsList" },
     { title: "Student Result", path: "/StudentResult" },
     { title: "Online Exam", path: "/OnlineExam" },
     // { title: "Verified Institutes", path: "/Institutes" },

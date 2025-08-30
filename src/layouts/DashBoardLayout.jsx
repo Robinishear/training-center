@@ -57,7 +57,7 @@ const DashBoardLayout = () => {
           </div>
         </div>
         
-        <div className="flex-1  md:p-8">
+        <div className="flex-1 bg-gradient-to-br from-gray-950 via-gray-900 to-indigo-950 md:p-8">
           <Outlet></Outlet>
         </div>
       </div>
@@ -70,7 +70,7 @@ const DashBoardLayout = () => {
         <ul className="menu bg-gray-800 text-gray-200 min-h-full w-60 p-4 shadow-xl">
          
           <div className="mb-6 px-4">
-          <p>LOGO</p>
+          <NavLink to="/">LOGO</NavLink>
           </div>
 
           <li>
@@ -112,10 +112,10 @@ const DashBoardLayout = () => {
               Remove Course
             </NavLink>
           </li>
-          {isAdmin && (
+          <div className="font-bold text-xl mt-10 text-blue-600 ml-3">Branches-All-Page</div>
             <li>
               <NavLink
-                to="/dashBoard/pendingBookings"
+                to="/dashBoard/StudentsList"
                 className={({ isActive }) =>
                   isActive
                     ? "flex items-center gap-2 text-indigo-400 font-semibold bg-gray-700 rounded-lg py-2 px-3 transition-colors duration-200"
@@ -123,10 +123,10 @@ const DashBoardLayout = () => {
                 }
               >
                 <FaHistory className="text-gray-400 group-hover:text-indigo-400" />
-                Pending Bookings
+               ADD-Students
               </NavLink>
             </li>
-          )}
+      
 
           {isMember && (
             <li>
