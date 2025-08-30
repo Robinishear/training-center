@@ -26,6 +26,8 @@ import ALLStudents from "../All-Page/ALLStudents/ALLStudents";
 import ExamSuggestion from "../DashBoardPages/Branches-All-Page/ExamSuggestion/ExamSuggestion";
 import OMRSheet from "../DashBoardPages/Branches-All-Page/OMRSheet/OMRSheet";
 import UpdatePassword from "../DashBoardPages/Branches-All-Page/UpdatePassword/UpdatePassword";
+import ExamQuestion from "../DashBoardPages/Branches-All-Page/ExamQuestion/ExamQuestion";
+import NewStudent from "../DashBoardPages/Branches-All-Page/NewStudent/NewStudent";
 
 const Router = createBrowserRouter([
   {
@@ -97,6 +99,30 @@ const Router = createBrowserRouter([
       {
         path: "/dashBoard/removeCourses",
         Component: RemoveCourses,
+      },
+      {
+        path: "/dashBoard/ExamQuestion",
+        Component: ExamQuestion,
+      },
+      {
+        path: "/dashBoard/ExamSuggestion",
+        Component: ExamSuggestion,
+      },
+      {
+        path: "/dashBoard/NewStudent",
+        Component: NewStudent,
+      },
+      {
+        path: "/dashBoard/OMRSheet",
+        Component: OMRSheet,
+      },
+      {
+        path: "/dashBoard/UpdatePassword",
+        Component: UpdatePassword,
+      },
+      {
+        path: "/dashBoard/StudentsList",
+        Component: StudentsList,
       },
     ],
   },
